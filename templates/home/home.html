@@ -7,77 +7,217 @@
 {% endblock %}
 
 {% block extcss %}
+
     <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
     <link rel="stylesheet" href="{% static 'home/css/swiper-3.4.2.min.css' %}">
 
 {% endblock %}
 {% block extjs %}
     <script src="{% static 'home/js/home.js' %}"></script>
-     <script src="{% static 'home/js/swiper-3.4.2.min.js' %}"></script>
+    <script src="{% static 'home/js/swiper-3.4.2.min.js' %}"></script>
 
 
 {% endblock %}
 
 {% block content %}
-        <!-- Swiper -->
+    <!-- Swiper -->
 
     <div class="home">
-{#    轮播图#}
-    <div class="swiper-container" id="topSwiper">
-        <div class="swiper-wrapper">
-            {% for w in wheel %}
-                <div class="swiper-slide">
-                    <img src="{{ w.img }}" alt="">
-                </div>
-            {% endfor %}
-        </div>
-        <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
-    </div>
-
-    <div class="nav">
-
-        <ul>
-            {% for nav in navs %}
-            <li>
-                <img src="{{ nav.img }}" alt="">
-            <span>{{ nav.name }}</span>
-            </li>
-            {% endfor %}
-
-        </ul>
-    </div>
-{#    每日必购#}
-    <div class="swiper-container" id="mustbuySwiper">
-    <div class="swiper-wrapper" >
-        {% for mustbuys in mustbuy %}
-            <div class="swiper-slide">
-                <img src="{{ mustbuys.img }}" alt="">
+        {#    轮播图#}
+        <div class="swiper-container" id="topSwiper">
+            <div class="swiper-wrapper">
+                {% for w in wheel %}
+                    <div class="swiper-slide">
+                        <img src="{{ w.img }}" alt="">
+                    </div>
+                {% endfor %}
             </div>
-        
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+{#        导航#}
+        <div class="nav">
+
+            <ul>
+                {% for nav in navs %}
+                    <li>
+                        <img src="{{ nav.img }}" alt="">
+                        <span>{{ nav.name }}</span>
+                    </li>
+                {% endfor %}
+
+            </ul>
+        </div>
+
+        {#    每日必购#}
+
+        <div class="swiper-container" id="mustbuySwiper">
+            <div class="swiper-wrapper">
+                {% for mustbuy in mustbuys %}
+                    <div class="swiper-slide">
+                        <img src="{{ mustbuy.img }}" alt="{{ mustbuy.name }}">
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+        <div class="shop">
+
+            <div class="shophead">
+                <a href="#">
+                    <img src="{{ shophead.img }}" alt="{{ shophead.name }}">
+                </a>
+            </div>
+
+            <div class="shoptab">
+                {% for shoptab in shoptabs %}
+                    <a href="#">
+                        <img src="{{ shoptab.img }}" alt="{{ shoptab.name }}">
+                    </a>
+                {% endfor %}
+
+
+            </div>
+
+                <ul class="shopclass">
+                    {% for shopclass in shopclass_list %}
+                        <li>
+
+                            <a href="#">
+                                <img src="{{ shopclass.img }}" alt="{{ shopclass.name }}">
+
+
+                            </a>
+                        </li>
+
+                    {% endfor %}
+
+                </ul>
+
+
+
+
+            <div class="shopcommend">
+                <ul class="shopcommend">
+                    {% for shopcommend in shopcommend_list %}
+                        <li>
+
+                            <a href="#">
+                                <img src="{{ shopcommend.img }}" alt="{{ shopcommend.name }}">
+
+
+                            </a>
+                        </li>
+
+                    {% endfor %}
+
+                </ul>
+
+
+
+            </div>
+        </div>
+
+
+
+    <div class="main">
+        {% for mainshow in mainshows %}
+            <div class="main-wrapper">
+
+            <div class="title">
+                {{ mainshow.name }}
+                <a href="#">更多</a>
+                <span></span>
+            </div>
+
+            <div class = 'headimg'>
+                <img src="{{ mainshow.img }}" alt="">
+            </div>
+            
+            <div class="shoplist">
+
+                <div class="shopitem">
+                    <a href="#">
+
+                        <img class="img" src="{{ mainshow.img1 }}" alt="">
+                        <div class="desc">
+                            {{ mainshow.longname1 }}
+                        </div>
+                         <span class="price">
+                            {{ mainshow.price1 }}
+                        </span>
+                         <span class="marketprice">
+                            {{ mainshow.marketprice1 }}
+                        </span>
+                    </a>
+                    <button><sapn>+</sapn></button>
+
+
+                </div>
+
+
+
+
+                <div class="shopitem">
+                    <a href="#">
+
+                        <img class="img" src="{{ mainshow.img2 }}" alt="">
+                        <div class="desc">
+                            {{ mainshow.longname2 }}
+                        </div>
+                         <span class="price">
+                            {{ mainshow.price2 }}
+                        </span>
+                         <span class="marketprice">
+                            {{ mainshow.marketprice2 }}
+                        </span>
+                    </a>
+                    <button><sapn>+</sapn></button>
+
+
+                </div>
+
+
+                <div class="shopitem">
+                    <a href="#">
+
+                        <img class="img" src="{{ mainshow.img3 }}" alt="">
+                        <span class="desc">
+                            {{ mainshow.longname3 }}
+                        </span>
+                         <span class="price">
+                            {{ mainshow.price3 }}
+                        </span>
+                         <span class="marketprice">
+                            {{ mainshow.marketprice3 }}
+                        </span>
+                    </a>
+                    <button><sapn>+</sapn></button>
+
+
+                </div>
+
+            </div>
+        </div>
+
         {% endfor %}
-        
-    </div>
-    
+
     </div>
 
 
 
-{#    <div class="swiper-container">#}
-{#        <div class="swiper-wrapper">#}
-{#            <div class="swiper-slide">Slide 1</div>#}
-{##}
-{#        </div>#}
-{#        <!-- Add Pagination -->#}
-{#        <div class="swiper-pagination"></div>#}
-{#        <!-- Add Arrows -->#}
-{#        <div class="swiper-button-next"></div>#}
-{#        <div class="swiper-button-prev"></div>#}
-{#    </div>#}
 
-    <!-- Swiper JS -->
 
-    <!-- Initialize Swiper -->
+
+
+    </div>
+
+
+
+
+
 
 
 

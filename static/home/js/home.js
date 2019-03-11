@@ -12,6 +12,8 @@
   //   </script>
  //
  $(function () {
+     $('.home').width(innerWidth)
+
       var topSwiper = new Swiper('#topSwiper', {
         pagination: '.swiper-pagination',
         nextButton: '.swiper-button-next',
@@ -22,13 +24,18 @@
         autoplay: 3300,
         loop: true
     });
- })
+
 
   var mustbuySwiper = new Swiper('#mustbuySwiper', {
         paginationClickable: true,
         spaceBetween: 3,
         loop: true,
-        autoplay: 3000,
+
         slidesPerView: 3,
         freeMode: true
     });
+
+
+
+
+   })
